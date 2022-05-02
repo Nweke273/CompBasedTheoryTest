@@ -23,30 +23,29 @@ class ResultController extends Controller
             ->with('results', $results);
     }
 
-    public function selectCourseForResult(){
+    public function selectCourseForResult()
+    {
         $courses = Course::all();
         return view('course-result')
-        ->with('courses',$courses);
+            ->with('courses', $courses);
     }
 
     public function studentResult(Request $request)
-    { 
+    {
         $result = '';
-       
-        $courseResult = Result::where('user_id',auth()->user()->id)
-        ->where('course_title',$request['title'])->get();
-if (auth()->user()->result) {
-  
-    if ($courseResult->isEmpty()) {
-        return view('exceptions.no-result'); 
-       
-    }
-    $result = Result::where('user_id', auth()->user()->id)
-    ->where('course_title',$request['title'])->first();
-}  
-else{
-    return view('exceptions.no-result');
-}    
+
+        $courseResult = Result::where('user_id', auth()->user()->id)
+            ->where('course_title', $request['title'])->get();
+        if (auth()->user()->result) {
+
+            if ($courseResult->isEmpty()) {
+                return view('exceptions.no-result');
+            }
+            $result = Result::where('user_id', auth()->user()->id)
+                ->where('course_title', $request['title'])->first();
+        } else {
+            return view('exceptions.no-result');
+        }
         return view('student.result')
             ->with('result', $result);
     }
@@ -91,7 +90,9 @@ else{
      */
     public function edit($id)
     {
-        //
+        $result = Result::where('user_id', $id)->first();
+        return view('lecturer.edit-result')
+            ->with('result', $result);
     }
 
     /**
@@ -103,7 +104,11 @@ else{
      */
     public function update(Request $request, $id)
     {
-        //
+        $result = Result::find($id);
+        $result->score = $request['score'];
+        $result->save();
+        $request->session()->flash('status', 'Result succesfully updated');
+        return redirect('/results');
     }
 
     /**
@@ -114,7 +119,10 @@ else{
      */
     public function destroy($id)
     {
-        //
+        $result = Result::where('user_id', $id);
+        $result->delete();
+        session()->flash('status', 'Result Succesfully Deleted');
+        return redirect('/results');
     }
 
     public function resultSearch(Request $request)

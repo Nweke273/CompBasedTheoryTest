@@ -16,7 +16,7 @@ class Result extends Model
         'score',
     ];
 
-    public function result()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

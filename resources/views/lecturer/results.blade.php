@@ -1,7 +1,11 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 @section('content')
-
-<div class="container-contact100" style="margin-top: 4%;">
+@if (session('status'))
+<div class="alert alert-success" role="alert">
+    {{ session('status') }}
+</div>
+@endif
+<div class="container-contact100">
     <div class="wrap-contact100">
         <div class="contact100-form validate-form" id="form">
             @if(!$results->isEmpty())
@@ -29,6 +33,9 @@
                         <th scope="col">Reg No</th>
                         <th scope="col">Name</th>
                         <th scope="col">Score</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -38,6 +45,14 @@
                         <td>{{$result->reg_no ?? ''}}</td>
                         <td>{{$result->name ?? ''}}</td>
                         <td>{{$result->score ?? ''}}</td>
+                        <td><a href="/results/{{$result->user->id}}/edit">Edit</a></td>
+                        <td>
+                            <form action="results/{{$result->user->id}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-danger">Delete</button>
+                            </form>
+                        </td>
                     </tr>
 
                     @endforeach
