@@ -73,12 +73,33 @@
     questionView.value = questions[currentEntry].question
     const courseTitle = (questions[currentEntry].course);
     console.log(questions);
+    typingAnswer();
 
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('next').addEventListener('click', nextQuestion)
         document.getElementById('previous').addEventListener('click', previousQuestion)
         document.getElementById('submitExam').addEventListener('click', submitExam);
     });
+
+    function typingAnswer() {
+        let typingTimer;
+        let doneTypingInterval = 1000;
+        let doneTyping = function() {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(function() {
+                if (currentEntry < questions.length - 1) {
+                    data[currentEntry] = {
+                        question: questions[currentEntry],
+                        answer: answerView.value
+                    }}
+                    console.log("stored", data);
+            }, doneTypingInterval);
+        }
+        answerView.addEventListener('keyup', doneTyping);
+        answerView.addEventListener('keydown', function() {
+            clearTimeout(typingTimer);
+        });
+    }
 
     function nextQuestion() {
         console.log(currentEntry)
@@ -129,13 +150,45 @@
             },
             url: "/store/answer",
             success: function(response) {
-                //window.location.href = '/test-submitted'
-                console.log(response.data);
+                window.location.href = '/test-submitted'
+                //console.log(response.data);
 
             }
         });
     }
+
+    //timer code
+
+    let allocatedTime = document
+        .getElementById('exam-duration')
+        .getAttribute('data-title')
+    const timer = document.getElementById('timer')
+    let timeSecond = allocatedTime * 60;
+
+    //comment out
+    timeSecond = 15;
+
+    let countDown = setInterval(function() {
+        timeSecond--
+        displayTime(timeSecond)
+        if (timeSecond == 10) {
+            timer.style.color = 'red'
+        } else if (timeSecond <= 0) {
+            submitExam();
+            // window.location.href = '/test-submitted'
+            // clearInterval(countDown)
+            //submitExam(data)
+        }
+    }, 1000)
+
+    function displayTime(timeSecond) {
+        const min = Math.floor(timeSecond / 60)
+        const sec = Math.floor(timeSecond % 60)
+        timer.innerHTML = `${min < 10 ? '0' : ''} ${min} : ${
+    sec < 10 ? '0' : ''
+  } ${sec}`
+    }
 </script>
-<script src="{{asset ('/js/timer.js')}}"></script>
+<!-- <script src="{{asset ('/js/timer.js')}}"></script> -->
 
 @endsection

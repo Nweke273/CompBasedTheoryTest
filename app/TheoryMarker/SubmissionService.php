@@ -12,7 +12,27 @@ use Doctrine\Inflector\InflectorFactory;
 
 class SubmissionService
 {
-    public function markQuestion(int $questionId, string $answer, string $title): array
+
+    public function markExam(array $answers, $course): float{
+        $totalMarks = 0;
+
+        foreach ($answers['data'] as $key => $answer) {
+            $marksObtained = $this->markQuestion($answer['question']['id'], $answer['answer']);
+
+            $totalMarks += $marksObtained;
+        }
+        Result::create([
+            'user_id' => auth()->user()->id,
+            'name' => auth()->user()->name,
+            'reg_no' => auth()->user()->student->reg_no,
+            'course_title' => $course,
+            'score' => $totalMarks
+        ]);
+
+
+        return $totalMarks;
+    }
+    public function markQuestion(int $questionId, string $answer): float
     {
         //get question
         $question = Question::find($questionId);
@@ -38,23 +58,12 @@ class SubmissionService
             'marks' => $marksObtained
         ]);
 
-        Result::create([
-            'user_id' => auth()->user()->id,
-            'name' => auth()->user()->name,
-            'reg_no' => auth()->user()->student->reg_no,
-            'course_title' => $title,
-            'score' => 0
-        ]);
 
-        $result = Result::where('user_id', auth()->user()->id)
-        ->where('course_title', $title)->first();
-        $result->score += $marksObtained;
-        $result->save();
 
 
         $marksObtained = $marksObtained > $question->marks_obtainable ? $question->marks_obtainable : $marksObtained;
-
-        return ['mark' => $marksObtained, 'total' => $question->marks_obtainable];
+return $marksObtained;
+        //return ['mark' => $marksObtained, 'total' => $question->marks_obtainable];
     }
 
     public function findInAnswer(string $keyPhrase, string $answer): bool

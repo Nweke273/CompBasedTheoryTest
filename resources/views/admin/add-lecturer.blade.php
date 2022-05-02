@@ -70,7 +70,7 @@
                         </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn" id="submit" value="submit">
+                                <button type="submit" class="btn btn-home" id="submit" value="submit">
                                     Create
                                 </button>
                             </div>
