@@ -113,4 +113,19 @@ class QuestionController extends Controller
     {
         //
     }
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        
+        $questions = DB::table('questions')->pluck('question');
+        $items = array();
+        foreach($questions as $question){
+            $items[] = $question;
+        }
+        return view('welcome')->with('items', $items);
+    }
 }
