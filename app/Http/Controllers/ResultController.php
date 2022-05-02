@@ -119,7 +119,7 @@ class ResultController extends Controller
      */
     public function destroy($id)
     {
-        $result = Result::where('user_id', $id);
+        $result = Result::find($id);
         $result->delete();
         session()->flash('status', 'Result Succesfully Deleted');
         return redirect('/results');

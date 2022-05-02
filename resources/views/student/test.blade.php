@@ -72,8 +72,20 @@
     currentEntry = 0;
     questionView.value = questions[currentEntry].question
     const courseTitle = (questions[currentEntry].course);
-    console.log(questions);
+    let doneTypingInterval = 300;
+    let saveEvery = 2000;
+
     typingAnswer();
+
+    setInterval(function() {
+                if (currentEntry <= questions.length - 1) {
+                    data[currentEntry] = {
+                        question: questions[currentEntry],
+                        answer: answerView.value 
+                    }}
+                    console.log("stored 2", data);
+            }, saveEvery);
+
 
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('next').addEventListener('click', nextQuestion)
@@ -83,7 +95,6 @@
 
     function typingAnswer() {
         let typingTimer;
-        let doneTypingInterval = 1000;
         let doneTyping = function() {
             clearTimeout(typingTimer);
             typingTimer = setTimeout(function() {
@@ -92,7 +103,7 @@
                         question: questions[currentEntry],
                         answer: answerView.value
                     }}
-                    console.log("stored", data);
+                    console.log("stored 1", data);
             }, doneTypingInterval);
         }
         answerView.addEventListener('keyup', doneTyping);
@@ -102,8 +113,8 @@
     }
 
     function nextQuestion() {
-        console.log(currentEntry)
-        if (currentEntry < questions.length - 1) {
+        console.log("clicked next", currentEntry)
+        if ((currentEntry < questions.length - 1)) {
 
             data[currentEntry] = {
                 question: questions[currentEntry],
@@ -118,9 +129,10 @@
     }
 
     function previousQuestion() {
-        console.log(currentEntry)
+        console.log("clicked previous", currentEntry);
 
-        if (currentEntry > 0) {
+
+        if (currentEntry > 0 ) {
             data[currentEntry] = {
                 question: questions[currentEntry],
                 answer: answerView.value
@@ -166,7 +178,7 @@
     let timeSecond = allocatedTime * 60;
 
     //comment out
-    timeSecond = 15;
+    //timeSecond = 150;
 
     let countDown = setInterval(function() {
         timeSecond--
@@ -176,7 +188,7 @@
         } else if (timeSecond <= 0) {
             submitExam();
             // window.location.href = '/test-submitted'
-            // clearInterval(countDown)
+             clearInterval(countDown)
             //submitExam(data)
         }
     }, 1000)

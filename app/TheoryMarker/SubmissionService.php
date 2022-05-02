@@ -32,14 +32,16 @@ class SubmissionService
 
         return $totalMarks;
     }
-    public function markQuestion(int $questionId, string $answer): float
+    public function markQuestion(int $questionId, ?string $answer): float
     {
+if(!$answer){
+    $answer = '';
+}
         //get question
         $question = Question::find($questionId);
         $answers = json_decode($question->answers);
         $marksObtained = 0;
-
-        foreach ($answers as $partAnswer) {
+    foreach ($answers as $partAnswer) {
 
             $partAnswerOptions = explode(';', $partAnswer->answer);
 
@@ -51,6 +53,8 @@ class SubmissionService
                 }
             }
         }
+
+        
         Submission::create([
             'user_id' => auth()->user()->id,
             'question_id' => $questionId,

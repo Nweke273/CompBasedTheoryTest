@@ -45,9 +45,9 @@
                         <td>{{$result->reg_no ?? ''}}</td>
                         <td>{{$result->name ?? ''}}</td>
                         <td>{{$result->score ?? ''}}</td>
-                        <td><a href="/results/{{$result->user->id}}/edit">Edit</a></td>
+                        <td><a href="/results/{{$result->id}}/edit">Edit</a></td>
                         <td>
-                            <form action="results/{{$result->user->id}}" method="post">
+                            <form action="results/{{$result->id}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="text-danger">Delete</button>
