@@ -1,8 +1,6 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 @section('content')
 <div class="relative flex items-top justify-center min-h-screen col-md-12">
-
-
     <div class="container-contact100" style="margin-top: 4%;">
         <div class="wrap-contact100">
             <div class="contact100-form validate-form" id="form">
@@ -27,7 +25,7 @@
                             <a href="/students/{{auth()->user()->id}}/result">
                                 <button class="contact100-form-btn" id="submit" value="submit" type="submit">
                                     <span>
-                                        Start Exam
+                                        Check Result
                                         <i class="zmdi zmdi-arrow-right m-l-8"></i>
                                     </span>
                                 </button>
