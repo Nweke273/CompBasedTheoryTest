@@ -43,7 +43,7 @@ class QuestionService
             }
         }
 
-        $question->answers = json_encode($answers);
+        $question->answers = json_encode(array_values($answers));
         $question->save();
         return $question;
     }

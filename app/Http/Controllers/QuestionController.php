@@ -43,14 +43,13 @@ class QuestionController extends Controller
         $course = Course::where('title',$request['title'])->first();
         $examDuration = $course->exam_duration;
         
-        $questions = Question::where('course', $title)->get();
+        $questions = (json_encode(Question::where('course', $title)->get()));
 
         return view('student.test')
-            ->with('questions', $questions)
+            ->with('questions', json_decode($questions))
             ->with('title',$title)
             ->with('examDuration',$examDuration)
             ->with('courseResult', $courseResult);
-            //->with('currentPage', $currentPage);
     }
 
     /**

@@ -13,7 +13,8 @@ use Doctrine\Inflector\InflectorFactory;
 class SubmissionService
 {
 
-    public function markExam(array $answers, $course): float{
+    public function markExam(array $answers, $course): float
+    {
         $totalMarks = 0;
 
         foreach ($answers['data'] as $key => $answer) {
@@ -34,14 +35,16 @@ class SubmissionService
     }
     public function markQuestion(int $questionId, ?string $answer): float
     {
-if(!$answer){
-    $answer = '';
-}
+        if (!$answer) {
+            $answer = '';
+        }
         //get question
         $question = Question::find($questionId);
-        $answers = json_decode($question->answers);
+        var_dump($question);
+        $answers = json_decode(str_replace('\"', '"', $question->answers));
+        var_dump($answers);
         $marksObtained = 0;
-    foreach ($answers as $partAnswer) {
+        foreach ($answers as $partAnswer) {
 
             $partAnswerOptions = explode(';', $partAnswer->answer);
 
@@ -54,7 +57,7 @@ if(!$answer){
             }
         }
 
-        
+
         Submission::create([
             'user_id' => auth()->user()->id,
             'question_id' => $questionId,
@@ -66,7 +69,7 @@ if(!$answer){
 
 
         $marksObtained = $marksObtained > $question->marks_obtainable ? $question->marks_obtainable : $marksObtained;
-return $marksObtained;
+        return $marksObtained;
         //return ['mark' => $marksObtained, 'total' => $question->marks_obtainable];
     }
 

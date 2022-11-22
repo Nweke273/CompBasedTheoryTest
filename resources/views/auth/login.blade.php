@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-    <title>Finance Business HTML5 Template</title>
+    <title>Automated System for Marking Theory Based Examination Questions</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset ('/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet')}}">
@@ -58,7 +58,7 @@ https://templatemo.com/tm-545-finance-business
                 <div class="col-md-12">
                     <div class="section-heading">
                         <h2><em>Login</em></h2>
-                        <span>Provide your login details</span>
+                        <span>Please provide your student's, Lecturer or Admin login details</span>
                     </div>
                 </div>
                 <div class="col-md-8 m-auto">

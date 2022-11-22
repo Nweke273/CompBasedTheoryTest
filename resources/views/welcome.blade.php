@@ -45,22 +45,13 @@ https://templatemo.com/tm-545-finance-business
     <header class="">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <h2>Maria Sumpta</h2>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/login">Login
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
+              <a class="navbar-brand" href="index.html">
+                    <h2>Automated System for Marking Theory Based Examination Questions</h2>
+                </a><div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ml-auto"><li class="nav-item active"><a class="nav-link" href="/login">Login
+                                <span class="sr-only">(current)</span></a></li>
                     </ul>
                 </div>
-            </div>
+          </div>
         </nav>
     </header>
     <!-- Page Content -->
@@ -71,11 +62,12 @@ https://templatemo.com/tm-545-finance-business
             <div class="item item-1">
                 <div class="img-fill">
                     <div class="text-content">
-                        <h6>Online computer based examination</h6>
-                        <h4>Maria Sumpta<br>Institution</h4>
+                        <h6>By: Nwosu Ogochukwu F. EBSU/PG/Ph.D/2016/08480</h6>
+                        <h4><a class="navbar-brand" href="index.html">Supervisor: Prof. S. O. Abonyi</a></h4>
                         <p>Students are advised to do the necessary registrations to access their exam. <a href="one-page.html">Results are made available</a> imediately after the examination.</p>
-                        <a href="/home" class="filled-button">Get Started</a>
-                    </div>
+                        <p><a href="/home" class="filled-button">Get Started</a></p>
+                        <p>Department of Science &amp; Computer Education, Ebonyi State University, Abakiliki</p>
+                  </div>
                 </div>
             </div>
             <!-- // Item -->
@@ -83,11 +75,12 @@ https://templatemo.com/tm-545-finance-business
             <div class="item item-2">
                 <div class="img-fill">
                     <div class="text-content">
-                        <h6>Online computer based examination</h6>
-                        <h4>Maria Sumpta<br>Institution</h4>
+                        <h6>By: Nwosu Ogochukwu F. EBSU/PG/Ph.D/2016/08480</h6>
+                        <h4><a class="navbar-brand" href="index.html">Supervisor: Prof. S. O. Abonyi</a></h4>
                         <p>Students are advised to do the necessary registrations to access their exam. <a href="one-page.html">Results are made available</a> imediately after the examination.</p>
-                        <a href="/home" class="filled-button">Get Started</a>
-                    </div>
+                        <p><a href="/home" class="filled-button">Get Started</a></p>
+                        <p>Department of Science &amp; Computer Education, Ebonyi State University, Abakiliki</p>
+                  </div>
                 </div>
             </div>
             <!-- // Item -->
@@ -95,11 +88,12 @@ https://templatemo.com/tm-545-finance-business
             <div class="item item-3">
                 <div class="img-fill">
                     <div class="text-content">
-                        <h6>Online computer based examination</h6>
-                        <h4>Maria Sumpta<br>Institution</h4>
+                        <h6>By: Nwosu Ogochukwu F. EBSU/PG/Ph.D/2016/08480</h6>
+                        <h4><a class="navbar-brand" href="index.html">Supervisor: Prof. S. O. Abonyi</a></h4>
                         <p>Students are advised to do the necessary registrations to access their exam. <a href="one-page.html">Results are made available</a> imediately after the examination.</p>
-                        <a href="/home" class="filled-button">Get Started</a>
-                    </div>
+                        <p><a href="/home" class="filled-button">Get Started</a></p>
+                        <p>Department of Science &amp; Computer Education, Ebonyi State University, Abakiliki</p>
+                  </div>
                 </div>
             </div>
             <!-- // Item -->

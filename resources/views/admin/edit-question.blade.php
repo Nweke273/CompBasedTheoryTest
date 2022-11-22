@@ -78,9 +78,10 @@
                                         </div>
                                         <?php
                                         $answers = $currentQuestion->answers;
-                                        $json_answers = json_decode($answers);
+                                         $json_answers = json_decode(str_replace('\\','',$answers));
+                                         var_dump($json_answers);
                                         ?>
-                                        @foreach($json_answers as $key => $answer)
+                                        @foreach($json_answers ?? [] as $key => $answer)
                                         <div class="row">
                                             <div>
 
@@ -138,7 +139,7 @@
                 <script>
                     $(document).ready(function() {
                         let wrapper = $("#iq");
-                        let i = parseInt("{{count($json_answers ?? [])}}")
+                        let i = parseInt("{{count(array($json_answers) ?? [])}}")
                         $("#add-answer").click(function() {
                             i = i + 1;
                             $(wrapper).append(`

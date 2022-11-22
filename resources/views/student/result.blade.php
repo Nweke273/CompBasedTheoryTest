@@ -4,12 +4,12 @@
     <div style="margin-top: 4%;">
         <div class="wrap-contact100">
             <div>
-                <h1 class="text-center mb-3">Smart Gap Computer Institute</h1>
-                <h2 class="text-center mb-3">Student Summer Exam Result</h2>
-                <h5 class="text-center mb-3">Course: {{$result['course_title']??''}}</h5>
+                <h1 class="text-center mb-3">Department of Science &amp; Computer Education</h1>
+                <h2 class="text-center mb-3">Ebonyi State University</h2>
+                <h5 class="text-center mb-3">Student's Result of Course: {{$result['course_title']??''}}</h5>
             </div>
             <span class="contact100-form-title text-center mb-2">
-                Score!!
+                Your score in this course is!!
             </span>
             <div class="container-contact100-form-btn text-center mb-3">
                 <a href="javascript::void['0']">

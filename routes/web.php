@@ -18,8 +18,8 @@ use App\Http\Controllers\QuestionController;
 */
 
 Route::get('/', function () {
-    User::firstOrCreate(['email' => 'admin@gmail.com', 'name'=> 'Admin', 'role' =>2],
-     ['email' => 'admin@gmail.com', 'name'=> 'Admin', 'role' =>2, 'password' => Hash::make('password')]);
+    // User::firstOrCreate(['email' => 'admin@gmail.com', 'name'=> 'Admin', 'role' =>2],
+    //  ['email' => 'admin@gmail.com', 'name'=> 'Admin', 'role' =>2, 'password' => Hash::make('password')]);
     return view('welcome');
 });
 
